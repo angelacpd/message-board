@@ -6,4 +6,4 @@ class Post(models.Model):
 
     def __str__(self):
         """String representation of the model."""
-        return str(self.id) + " - " + self.text[:50]
+        return self.text[:50]

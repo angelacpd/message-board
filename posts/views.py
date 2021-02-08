@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 
-from . models import Post
+from .models import Post
 
 
 class HomePageView(ListView):
