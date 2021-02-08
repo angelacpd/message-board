@@ -14,13 +14,7 @@ import os
 from pathlib import Path
 
 import environ
-
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-dotenv_file_path = os.path.join(BASE_DIR, '.env')
-environ.Env.read_env(dotenv_file_path)
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(
     SECRET_KEY=(str, ''),
 )
+
+dotenv_file_path = os.path.join(BASE_DIR, '.env')
+environ.Env.read_env(dotenv_file_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -134,3 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
